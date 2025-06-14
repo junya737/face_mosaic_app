@@ -1,4 +1,4 @@
-# mosic_ai_codex
+# face_mosaic_app
 
 アップロードした写真に人の顔があればモザイクをかける Web アプリです。
 
@@ -45,7 +45,7 @@ terraform apply
 1. AWS アカウントを作成し、[IAM ユーザー](https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_users_create.html) を用意します。アクセスキーを取得したら `aws configure` でクレデンシャルを設定します。
 2. EC2 用のキーペアを [マネジメントコンソール](https://console.aws.amazon.com/ec2/) から作成し、`terraform.tfvars` に `key_name` を設定します。キーファイル (`.pem`) は SSH 接続で必要になるので安全に保管してください。
 3. デプロイするリージョンや AMI ID を `terraform.tfvars` で指定します。Ubuntu の AMI は [AWS マーケットプレイス](https://aws.amazon.com/marketplace) などで検索できます。
-4. GitHub からアプリを取得するため `repo_url` 変数を設定します。自身のフォークを利用する場合は `https://github.com/<ユーザー名>/mosic_ai_codex` の形式で指定してください。
+4. GitHub からアプリを取得するため `repo_url` 変数を設定します。自身のフォークを利用する場合は `https://github.com/<ユーザー名>/face_mosaic_app` の形式で指定してください。
 5. 変数を用意したら次を実行します。
    ```bash
    cd terraform

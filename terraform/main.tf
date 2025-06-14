@@ -13,7 +13,7 @@ provider "aws" {
 }
 
 resource "aws_security_group" "app" {
-  name        = "mosic-app-sg"
+  name        = "face-mosaic-app-sg"
   description = "Allow HTTP traffic"
 
   ingress {
@@ -49,14 +49,14 @@ resource "aws_instance" "app" {
               #!/bin/bash
               apt-get update
               apt-get install -y python3 python3-pip git
-              git clone ${var.repo_url} /opt/mosic_ai_codex
+              git clone ${var.repo_url} /opt/face_mosaic_app
 
-              pip3 install -r /opt/mosic_ai_codex/requirements.txt
-              PORT=${var.port} nohup python3 /opt/mosic_ai_codex/app.py &
+              pip3 install -r /opt/face_mosaic_app/requirements.txt
+              PORT=${var.port} nohup python3 /opt/face_mosaic_app/app.py &
               EOF2
 
   tags = {
-    Name = "mosic-ai-codex"
+    Name = "face-mosaic-app"
   }
 }
 
