@@ -26,3 +26,17 @@
 - `app.py` : Flask アプリ本体
 - `templates/index.html` : アップロードフォーム
 - `requirements.txt` : 必要な Python パッケージ
+
+## Terraform でのデプロイ例
+AWS 上に EC2 インスタンスを作成してアプリを公開するシンプルなサンプルを `terraform`
+ディレクトリに用意しています。以下のように実行します。
+
+```bash
+cd terraform
+terraform init
+terraform apply
+```
+
+`ami_id` や `key_name` などの変数は `-var` オプションや `terraform.tfvars`
+ファイルで指定してください。適用後、出力される `instance_public_ip` にブラウザ
+からアクセスすることでアプリを確認できます。
