@@ -42,6 +42,7 @@ resource "aws_instance" "app" {
               apt-get update
               apt-get install -y python3 python3-pip git
               git clone ${var.repo_url} /opt/mosic_ai_codex
+
               pip3 install -r /opt/mosic_ai_codex/requirements.txt
               PORT=${var.port} nohup python3 /opt/mosic_ai_codex/app.py &
               EOF2
