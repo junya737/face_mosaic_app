@@ -53,3 +53,7 @@ terraform apply
    terraform apply
    ```
 6. 数分待つと EC2 インスタンスが起動し、`instance_public_ip` が表示されます。ブラウザで `http://<表示されたIP>:<port>` を開くとアプリにアクセスできます。
+7. 必要に応じて次のコマンドで SSH 接続も行えます。
+   ```bash
+   ssh -i <作成したpemファイル> ubuntu@<instance_public_ip>
+   ```
