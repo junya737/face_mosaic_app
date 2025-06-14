@@ -25,3 +25,9 @@ variable "port" {
   type        = number
   default     = 8000
 }
+
+variable "repo_url" {
+  description = "Git repository URL of the application"
+  type        = string
+}
+

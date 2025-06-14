@@ -40,3 +40,16 @@ terraform apply
 `ami_id` や `key_name` などの変数は `-var` オプションや `terraform.tfvars`
 ファイルで指定してください。適用後、出力される `instance_public_ip` にブラウザ
 からアクセスすることでアプリを確認できます。
+
+### AWS での利用手順
+1. AWS アカウントを作成し、[IAM ユーザー](https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_users_create.html) を用意します。アクセスキーを取得したら `aws configure` でクレデンシャルを設定します。
+2. EC2 用のキーペアを [マネジメントコンソール](https://console.aws.amazon.com/ec2/) から作成し、`terraform.tfvars` に `key_name` を設定します。キーファイル (`.pem`) は SSH 接続で必要になるので安全に保管してください。
+3. デプロイするリージョンや AMI ID を `terraform.tfvars` で指定します。Ubuntu の AMI は [AWS マーケットプレイス](https://aws.amazon.com/marketplace) などで検索できます。
+4. GitHub からアプリを取得するため `repo_url` 変数を設定します。自身のフォークを利用する場合は `https://github.com/<ユーザー名>/mosic_ai_codex` の形式で指定してください。
+5. 変数を用意したら次を実行します。
+   ```bash
+   cd terraform
+   terraform init
+   terraform apply
+   ```
+6. 数分待つと EC2 インスタンスが起動し、`instance_public_ip` が表示されます。ブラウザで `http://<表示されたIP>:<port>` を開くとアプリにアクセスできます。
