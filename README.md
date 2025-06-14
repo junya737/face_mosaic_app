@@ -8,6 +8,12 @@
    ```bash
    pip install -r requirements.txt
    ```
+   `uv` を利用する場合は次のように仮想環境を作成してインストールできます。
+   ```bash
+   uv venv .venv
+   source .venv/bin/activate
+   uv pip install -r requirements.txt
+   ```
 2. アプリを起動します。
    ```bash
    python app.py
